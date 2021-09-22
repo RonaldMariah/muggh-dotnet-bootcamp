@@ -4,7 +4,7 @@ name: CI
 
 env:
   AZURE_FUNCTIONAPP_NAME: muggh-app
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: 'MUGGH_DOTNET_BOOTCAMP'
   DOTNET_VERSION: '3.1'
   
 # Controls when the workflow will run

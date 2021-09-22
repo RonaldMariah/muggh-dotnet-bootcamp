@@ -5,7 +5,7 @@
 		<AzureFunctionsVersion>v3</AzureFunctionsVersion>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.0.0-preview2" />
+		<PackageReference Include="Microsoft.NET.Sdk.Functions" Version="3.0.13" />
 		<PackageReference Include="System.Net.Http" Version="4.3.4" />
 	</ItemGroup>
 	<ItemGroup>

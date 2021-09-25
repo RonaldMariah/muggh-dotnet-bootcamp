@@ -39,13 +39,13 @@ namespace MUGGH_DOTNET_BOOTCAMP
             var clientCredential = new ClientCredential(credentialId, credentialSecret);
 
             var authenticationContext =
-                new AuthenticationContext("https://login.windows.net/c0ea6916-3598-4bac-aa1b-a8c92c985ada");
+                new AuthenticationContext("https://login.windows.net/{tenantId}");
 
             var accessToken = (await authenticationContext.AcquireTokenAsync("https://management.azure.com/", clientCredential)).AccessToken;
 
             var storageManagementClient = new StorageManagementClient(new TokenCredentials(accessToken))
             {
-                SubscriptionId = "fedac4e9-b5e9-4a01-b68c-d3375b1c0ca5"
+                SubscriptionId = "{subscriptionId}"
             };
 
             await storageManagementClient.StorageAccounts.CreateAsync("storage-accounts", detail.Name,

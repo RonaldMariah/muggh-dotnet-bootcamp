@@ -23,11 +23,12 @@ jobs:
     runs-on: windows-latest
     environment: dev
     steps:
-    - name: Log in with Azure
+    - name: Login to Azure
       uses: azure/login@v1
       with:
         creds: '${{ secrets.AZURE_CREDENTIALS }}'
-    - name: 'Checkout GitHub Action'
+        
+    - name: 'Checkout'
       uses: actions/checkout@master
 
     - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
@@ -35,14 +36,15 @@ jobs:
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
 
-    - name: 'Resolve Project Dependencies Using Dotnet'
+    - name: 'Build Project'
       working-directory: MUGGH_DOTNET_BOOTCAMP
       shell: pwsh
       run: |
         pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
         dotnet build --configuration Release --output ./output
         popd
-    - name: 'Run Azure Functions Action'
+        
+    - name: 'Deploy Azure Function App'
       uses: Azure/functions-action@v1
       id: fa
       with:
